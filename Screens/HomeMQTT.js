@@ -9,27 +9,83 @@ import { StyleSheet, Text, View, Switch, TouchableOpacity} from 'react-native';
 export default function HomeMQTT() {
 
 
+  function post(evenement) {
+    let date = new Date().toLocaleString();
+    fetch('https://fingobox.com/api/database/row', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          "app_id": 124,
+          "app_token": "BBuj3W25ij7cd3L8zEIMhY",
+          "database_id": 109,
+          "database_column_values": {
+              "event": evenement,
+              "date": date,
+          }
+        })
+    })
+    .then(response => response.json())
+}
+
+/* {
+    let date = new Date().toLocaleString();
+    fetch 
+      https://fingobox.com/api/database/row
+      {
+          "app_id": 124,
+          "app_token": "BBuj3W25ij7cd3L8zEIMhY",
+          "database_id": 109,
+          "database_column_values": {
+              "event": evenement,
+      
+              "date": date,
+      
+          }
+      }
+  } */
+
   const [isEnabled, setIsEnabled] = useState(false);
   const [isEnabled1, setIsEnabled1] = useState(false);
   const [isEnabled2, setIsEnabled2] = useState(false);
+  const [etatTrig, setEtatTrig] = useState("OFF")
+  const [etatTrig1, setEtatTrig1] = useState("OFF")
+  const [etatTrig2, setEtatTrig2] = useState("OFF")
+
 
 
   function onMessage(message) {
-    if (message.destinationName === "mqtt-async-test/value") {
-        setValue(parseInt(message.payloadString));
-        console.log("function onMessage value", message.payloadString)
-    }
     if (message.destinationName === "mqtt-async-test/trig") {
         setIsEnabled(("true" === message.payloadString));
         console.log("function onMessage trig", message.payloadString)
+        if("true" === message.payloadString){
+          setEtatTrig("ON")
+          post("Lumiere entree open")
+        } else{
+          setEtatTrig("OFF")
+          post("Lumiere entree close")
+        }
     }
     if (message.destinationName === "mqtt-async-test/trig1") {
         setIsEnabled1(("true" === message.payloadString));
         console.log("function onMessage trig1", message.payloadString)
+        if("true" === message.payloadString){
+          setEtatTrig1("ON")
+          post("Lumiere salon open")
+        } else{
+          setEtatTrig1("OFF")
+          post("Lumiere salon close")
+        }
     }
     if (message.destinationName === "mqtt-async-test/trig2") {
         setIsEnabled2(("true" === message.payloadString));
         console.log("function onMessage trig2", message.payloadString)
+        if("true" === message.payloadString){
+          setEtatTrig2("ON")
+          post("Alarme open")
+        } else{
+          setEtatTrig2("OFF")
+          post("Alarme close")
+        }
     }
   }
 
@@ -139,6 +195,7 @@ export default function HomeMQTT() {
                         onValueChange={toggleSwitch}
                         value={isEnabled}
                     />
+                    <Text style={styles.etatText}>{etatTrig}</Text>
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.trigger}
@@ -151,6 +208,7 @@ export default function HomeMQTT() {
                         onValueChange={toggleSwitch1}
                         value={isEnabled1}
                     />
+                    <Text style={styles.etatText}>{etatTrig1}</Text>
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.trigger}
@@ -163,6 +221,7 @@ export default function HomeMQTT() {
                         onValueChange={toggleSwitch2}
                         value={isEnabled2}
                     />
+                    <Text style={styles.etatText}>{etatTrig2}</Text>
             </TouchableOpacity>
         </View>
   );
@@ -204,5 +263,11 @@ const styles = StyleSheet.create({
     paddingLeft:50,
     paddingRight:50,
     width: "95%",
-  }
+  },
+  etatText:{
+    fontSize:20,
+    color:'white',
+    fontWeight: 'bold'
+  },
+
 });
