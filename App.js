@@ -23,7 +23,7 @@ export default function App() {
   return (
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="mqtt">
-          <Drawer.Screen name="mqtt" component={HomeMQTT} />
+          <Drawer.Screen name="Home" component={HomeMQTT} />
           <Drawer.Screen name="History" component={HistoryScreen} />
           <Drawer.Screen name="Setting" component={SettingScreen} />
         </Drawer.Navigator>

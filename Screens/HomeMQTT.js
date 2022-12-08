@@ -1,4 +1,4 @@
-// App mqtt.js
+// Screens/HomeMQTT.js
 
 import Paho from "paho-mqtt";
 import { useState, useEffect } from "react";
@@ -27,22 +27,6 @@ export default function HomeMQTT() {
     .then(response => response.json())
 }
 
-/* {
-    let date = new Date().toLocaleString();
-    fetch 
-      https://fingobox.com/api/database/row
-      {
-          "app_id": 124,
-          "app_token": "BBuj3W25ij7cd3L8zEIMhY",
-          "database_id": 109,
-          "database_column_values": {
-              "event": evenement,
-      
-              "date": date,
-      
-          }
-      }
-  } */
 
   const [isEnabled, setIsEnabled] = useState(false);
   const [isEnabled1, setIsEnabled1] = useState(false);

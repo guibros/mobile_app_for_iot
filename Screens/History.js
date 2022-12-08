@@ -1,8 +1,9 @@
+// Screens/History.js
+
 import React, { useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native'
 import { StyleSheet, TouchableOpacity, Text, View, Button } from 'react-native';
 
-//https://fingobox.com/api/database/rows/124/BBuj3W25ij7cd3L8zEIMhY/109
 
 
 const HistoryScreen = () => {
