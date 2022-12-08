@@ -1,11 +1,11 @@
-# MQTT Switch in React-Native
+# Mobile (IOS/Android) App to Command a ConnectedObject
 
-IoT Mobile app to command a connected objet. Switches to activate componants on a microcontroller through a MQTT server. Log in all activities into MongoDB and view the log.
+The app switches command components on a connected objet; like a Raspberry Pi or amicrocontroller. The commands go through a MQTT server. The target RPi or MCU sends back the change of state though the same MQTT server. The app shows the state of each component onthe RPi or the MCU. The outcoming and incoming activities are saved to an online database, FingoBox, and display within the app.
 
 ![]()
 
 
 
-- instruction 1 
-- instruction 2
-- instruction 3
+- Start from myApp folder with expo react native command "npm start" 
+- Install Expo on handheld device
+- Read QR code with handheld device camera 
