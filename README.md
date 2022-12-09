@@ -2,9 +2,9 @@
 
 The React Native app switches command components on a connected objet; like a Raspberry Pi or amicrocontroller. The commands go through a MQTT server. The target RPi or MCU sends back the change of state though the same MQTT server. The app shows the state of each component onthe RPi or the MCU. The outcoming and incoming activities are saved to an online database, FingoBox, and display within the app.
 
-|  <img width="379" alt="image" src="https://user-images.githubusercontent.com/116329812/206798308-42817ada-4929-4c46-b02a-35aa8a4d11c8.png">|  <img width="386" alt="image" src="https://user-images.githubusercontent.com/116329812/206798396-45983bb5-b231-4944-b56f-4edc9823c5c3.png">  |
+|  <img width="200" alt="image" src="https://user-images.githubusercontent.com/116329812/206801302-1a17a14d-fc61-4f3a-a69e-1c6e6164e2d4.png">|  <img width="199" alt="image" src="https://user-images.githubusercontent.com/116329812/206801355-e0baf5e6-3582-47e2-91a4-9436c21b322d.png">  |
 |-----|-----|
-|  <img width="385" alt="image" src="https://user-images.githubusercontent.com/116329812/206798489-68cf242d-6238-42a4-aee7-a6b468ccbbdd.png">   |<img width="381" alt="image" src="https://user-images.githubusercontent.com/116329812/206798254-ed0f15d5-fa92-461f-a54b-bb813ba0a2cf.png">   |
+|  <img width="198" alt="image" src="https://user-images.githubusercontent.com/116329812/206801434-e61edebc-ea92-4a5f-b532-26338559a88f.png">   |<img width="200" alt="image" src="https://user-images.githubusercontent.com/116329812/206801486-f18a24a0-f13a-4c2a-909c-166f90e67dde.png">  |
 
 
 
